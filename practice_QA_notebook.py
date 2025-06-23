@@ -11,9 +11,18 @@ warnings.filterwarnings('ignore') # From this point forward, ignore all warning 
 import base64
 
 st.set_page_config(
-    page_title="FMD DQA Tool"
+    page_title="FMD DQA Tool",
     page_icon = "🔍",
     layout = "wide",
     initial_sidebar_state="auto"
 )
 
+# Open image and convert to base64 instead of st.image() for better positioning/sizing
+with open("fmd.png", "rb") as f:
+    data = f.read() # read into binary mode
+    encoded = base64.b64encode(data).decode() # Encode data into base64 format and decode into string format for HTML
+
+# Use st.markdown() to inject HTML to show the image
+st.markdown(
+    # f for dynamic variables in string
+)
