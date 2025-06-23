@@ -11,5 +11,8 @@ warnings.filterwarnings('ignore') # From this point forward, ignore all warning 
 import base64
 
 st.set_page_config(
-    page_title="FMD "
+    page_title="FMD DQA Tool"
+    page_icon = "🔍",
+    layout = "wide",
+    initial_sidebar_state="auto"
 )
