@@ -25,4 +25,11 @@ with open("fmd.png", "rb") as f:
 # Use st.markdown() to inject HTML to show the image
 st.markdown(
     # f for dynamic variables in string
+    # Embed data directly into streamlit using data:[<mediatype>][;base64],<data>
+    f"""
+    <div style = "text-align: center;">
+        <img src = "data:image/png;base64,{encoded}" width="700"/>
+    </div>
+    """,
+    unsafe_allow_html = True
 )
