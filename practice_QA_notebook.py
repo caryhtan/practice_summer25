@@ -35,4 +35,9 @@ st.markdown(
 )
 
 class DQATool:
+    def __init__(self):
+        self.results = {}
+        self.comparison_results = {}
     
+    def detect_header_row(self, file_content, filename):
+        
