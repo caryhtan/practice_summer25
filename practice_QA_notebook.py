@@ -34,10 +34,34 @@ st.markdown(
     unsafe_allow_html = True
 )
 
+# Translate variable names into display names for users
+USER_FRIENDLY_NAMES = {
+    'total_blanks': 'Total Issues Found',
+    'null_count': 'Missing Values',
+    'empty_strings': 'Blank Text Fields', 
+    'null_strings': 'Null Text Entries',
+    'quality_score_%': 'Data Completeness %',
+    'base_record_count': 'Previous File Records',
+    'compare_record_count': 'Current File Records',
+    'retention_rate': 'Record Retention %',
+    'stale_rate_percent': 'Unchanged Prices %',
+    'discrepancy_rate_percent': 'Reference Data Changes %',
+    'total_spikes': 'Price Movements Detected',
+    'affected_symbols': 'Instruments with Movements',
+    'Spike_Value': 'Current Price',
+    'Prev_Value': 'Previous Price',
+    'Magnitude': 'Movement Size'
+}
+
+def get_user_friendly_name(technical_name){
+    """Convert technical column names to user-friendly versions"""
+    return USER_FRIENDLY_NAMES.get(technical_name, technical_name.replace('_', ' ').title()) # get the value or replace underscore and cap the first letters
+}
+
 class DQATool:
     def __init__(self):
         self.results = {}
         self.comparison_results = {}
     
     def detect_header_row(self, file_content, filename):
-        
+         
