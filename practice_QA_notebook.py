@@ -39,6 +39,12 @@ class DQATool:
         self.results = {}
         self.comparison_results = {}
     
-    def detect_header_row(self, file_content, filename):
-        try:
-            
+    # def detect_header_row(self, file_content, filename):
+    #     try:
+    #         content_str = self.decode
+
+def main():
+    init_session_state()
+    tool = DQATool()
+
+    st.markdown("<h1 style = >")
