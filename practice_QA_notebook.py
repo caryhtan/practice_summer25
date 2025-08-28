@@ -47,4 +47,21 @@ def main():
     init_session_state()
     tool = DQATool()
 
-    st.markdown("<h1 style = >")
+    st.markdown("<h1 style = 'text-align: center;'> Data Quality Assurance Tool</h1>", unsafe_allow_html=True)
+
+    render_mode_selection()
+
+    if st.session_state.app_mode == 'iro':
+        render_iro_workflow(tool)
+        return
+    
+    with st.sidebar:
+        st.header("File Upload")
+        st.info("**For Analysis & Comparison modes**")
+
+        uploaded_files = st.file_uploader(
+            "Upload CSV or Excel files",
+            type=['csv', 'xlsx', 'xls'],
+            accept_multiple_files=True,
+            key = "file"
+        )
